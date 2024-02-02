@@ -15,7 +15,7 @@ def gameloop(scene):
     print(parseScene.description(scene))
 
     #interpret user input. Selects destination scene
-    choice = str(input())
+    choice = str(input()).upper()
     scene = str(scene)
     pointerMap = parseScene.where(scene)
     if choice in pointerMap:

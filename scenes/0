@@ -1,11 +1,9 @@
-Beginning of the game! You find yourself in an abandoned facility.
+You find yourself in an abandoned facility. The lights are off and you can barely see with the glow of the emergency lights. There is a computer in the room. It seems to be functional. There is an exit door behind you but it is locked with some sort of electronic lock.
 
 1: Log onto the facility's computer system
-2: Go back to this place
-3: Gabe
-4: Die
+2: Turn the lights on
+3: Skip to the end
 ;
 1>1
-2>2
-3>5
-4>72
+2>10
+3>4
