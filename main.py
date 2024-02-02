@@ -3,15 +3,12 @@ import os
 import fh
 import parseScene
 
-#variables
-#currentScene = 0
-
 #core gameloop
 def gameloop(scene):
     #clear the screen
     os.system('cls')
 
-    #parsing & printing the text (done with the parseScenes module) THIS SECTION NOT COMPLETE YET
+    #parsing & printing the text (done with the parseScenes module)
     print(parseScene.description(scene))
 
     #interpret user input. Selects destination scene

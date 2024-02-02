@@ -5,8 +5,6 @@ read(filename)
 
 write(filename, text)
 
-append(filename, text)
-
 """
 
 #returns the text of a text file
