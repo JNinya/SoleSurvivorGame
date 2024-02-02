@@ -2,8 +2,6 @@ You find yourself in an abandoned facility. The lights are off and you can barel
 
 1: Log onto the facility's computer system
 2: Turn the lights on
-3: Skip to the end
 ;
 1>1
 2>10
-3>4
