@@ -11,9 +11,8 @@ def gameloop():
     #clear the screen
     os.system('cls')
 
-    #parsing & printing the text (done with the parseScenes module)
+    #parsing & printing the text (done with the parseScenes module) THIS SECTION NOT COMPLETE YET
     print(parseScene.description(currentScene))
-    #print(parseScene.where(currentScene))
 
     choice = input()
     gameloop()
