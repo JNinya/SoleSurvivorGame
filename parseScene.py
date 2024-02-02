@@ -39,6 +39,3 @@ def where(sceneId):
         pointer_map[pointer[0]] = int(pointer[1])
 
     return(pointer_map)
-
-# DEBUG
-print(where(0))
