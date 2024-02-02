@@ -20,10 +20,9 @@ def description(sceneNumber):
     #return just the description (before the ; operator)
     return splitText[0]
 
-# take in a an input number and give out a new scene number based on the pointers included in the scene file
-# sceneId -> id of scene file
-# option  -> option selected
-# returns a map of pointers with string indices and int values
+# Read map of options to scene ids from scene file
+# sceneId -> id/name of scene file
+# Returns a map of pointers with string indices (option ids) and int values (scene ids)
 def where(sceneId):
     # rawText gets the whole file in the raw
     rawText = fh.read("scenes/" + str(sceneId))
