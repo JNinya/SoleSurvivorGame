@@ -4,6 +4,7 @@ import fh
 import parseScene
 
 #variables
+#muaahahahsdfagshjdhagsdhahsgdfahsjdasdas
 currentScene = 0
 
 #core gameloop
