@@ -26,4 +26,4 @@ def gameloop(scene):
 os.system('color a')
 gameloop(0)
 
-# end by gabe
+# end by jack
