@@ -1,23 +1,23 @@
 """
 Functions:
 
-description(sceneNumber)
+description(sceneId)
 
-where(inputNumber, option)
+where(sceneId)
 
 """
 
 import fh
 
-#get description text from the selected scene file
-def description(sceneNumber):
-    #rawText gets the whole file in the raw
-    rawText = fh.read("scenes/" + str(sceneNumber))
+# Get description text from the selected scene file
+def description(sceneId):
+    # rawText gets the whole file in the raw
+    rawText = fh.read("scenes/" + str(sceneId))
 
-    #split based on the ';' operator
+    # split based on the ';' operator
     splitText = rawText.split(";\n")
     
-    #return just the description (before the ; operator)
+    # return just the description (before the ; operator)
     return splitText[0]
 
 # Read map of options to scene ids from scene file
@@ -37,4 +37,4 @@ def where(sceneId):
         pointer = pointer.split(">")
         pointer_map[pointer[0]] = int(pointer[1])
 
-    return(pointer_map)
+    return pointer_map
