@@ -1,18 +1,17 @@
-#import modules
 import os
 import fh
 import parseScene
 
-#core gameloop
+# Main game loop
 def gameloop(scene):
-    #clear the screen
+    # Clear the screen
     os.system('cls')
 
-    #parsing & printing the text (done with the parseScenes module)
+    # Parsing & printing the text (done with the parseScenes module)
     print(parseScene.description(scene))
 
-    #interpret user input. Selects destination scene
-    choice = str(input()).upper()
+    # Interpret user input. Selects destination scene
+    choice = input().upper()
     scene = str(scene)
     pointerMap = parseScene.where(scene)
     if choice in pointerMap:
@@ -20,12 +19,11 @@ def gameloop(scene):
     else:
         gameloop(scene)
 
-    #open new scene that the user chose
+    # Open new scene that the user chose
     gameloop(destinationScene)
 
-#start the game
+# Start the game
 os.system('color a')
-os.system('cls')
 gameloop(0)
 
 # end by gabe
