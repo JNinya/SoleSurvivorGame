@@ -1,6 +1,7 @@
 import os
 import fh
 import parseScene
+import roomManager
 
 # Main game loop
 def gameloop(scene):
@@ -21,9 +22,13 @@ def gameloop(scene):
 
     # Open new scene that the user chose
     gameloop(destinationScene)
+# end of gameloop
 
-# Start the game
+# Init game
+rooms = roomManager.readRooms("rooms")
+print(rooms)
+
 os.system('color a')
-gameloop(0)
+#gameloop(0)
 
 # end by jack
