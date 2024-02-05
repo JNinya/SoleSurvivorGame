@@ -2,7 +2,7 @@
     "states": {
         "LIGHTS_ON": false,
         "SECRET_REVEALED": false,
-        "FIRST_TIME": false,
+        "FIRST_TIME": true,
         "DOORS_LOCKED": false,
         "N_DOOR_LOCKED": false,
         "S_DOOR_LOCKED": false,
