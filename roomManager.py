@@ -88,6 +88,11 @@ def readRooms(rooms_dir):
 
     return room_map
 
+# Update game state based on interaction selected
+def updateState(interaction, room, rooms_dict):
+    for update in interaction["updates"]:
+        setState(update, interaction["updates"][update], room, rooms_dict)
+
 # Get state value from local, room, or global path
 # Examples: "global.ROOM", "lab_room_3.LIGHTS_ON", "LIGHTS_ON"
 # state_path is the string path to get the state
@@ -107,18 +112,42 @@ def readState(state_path: str, room: Room, rooms_dict: list[Room]):
         # local path
         return room.states[state_path]
 
-def setState(state_path, room, rooms_dict, states_dict):
-    raise NotImplementedError("setState unimplemented!")
+def setState(state_path, value, room, rooms_dict):
+    split_path = state_path.split(".")
+    if len(split_path) > 1:
+        if split_path[0] == "global":
+            # set global state
+            raise NotImplementedError("Need to set global state!")
+        else:
+            # set room state
+            rooms_dict[split_path[0]].states[split_path[1]] = value
+
+    else:
+        # local path
+        room.states[state_path] = value
+
 
 
 # Debug/Testing
+
+# Load rooms from directory
 rooms = readRooms("rooms")
 room: Room = rooms["lab_room_3"]
+
 #print(readState("LIGHTS_ON", room, rooms))
 #prompt = room.nextPrompt()
+
+# Print prompt and interactions based on initial state
+# For lab_room_3, I set the lights to initially be on 
 print(room.nextPrompt()["text"])
-print(room.nextInteractions())
-room.states["LIGHTS_ON"] = False
+interactions = room.nextInteractions()
+print(interactions)
+
+# This is magic right here. The first interaction is the light switch interaction,
+# so let's update the state based on that interaction
+updateState(interactions[0], room, rooms)
+
+# Let's print the new state results and see!
 print("\n")
 print(room.nextPrompt()["text"])
 print(room.nextInteractions())

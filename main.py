@@ -22,6 +22,7 @@ def gameloop(scene):
 
     # Open new scene that the user chose
     gameloop(destinationScene)
+
 # end of gameloop
 
 # Init game
