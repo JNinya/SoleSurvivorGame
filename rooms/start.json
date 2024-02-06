@@ -9,9 +9,8 @@
         "TERMINAL_LOCKED": false
     },
     
-    "interactions": [
-        {
-            "name": "Turn on the light",
+    "interactions": {
+        "Turn on the light": {
             "requirements": {
                 "LIGHTS_ON": false
             },
@@ -20,8 +19,7 @@
             }
         },
 
-        {
-            "name": "Turn off the light",
+        "Turn off the light": {
             "requirements": {
                 "LIGHTS_ON": true
             },
@@ -30,8 +28,7 @@
             }
         },
 
-        {
-            "name": "Exit the room",
+        "Exit the room": {
             "requirements": {
                 "DOORS_LOCKED": false
             },
@@ -40,7 +37,7 @@
                 "global.ROOM": "next_room_1"
             }
         }
-    ],
+    },
     
     "prompts": [
         {

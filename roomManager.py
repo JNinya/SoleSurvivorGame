@@ -47,10 +47,11 @@ class Room:
 
     # Returns an array of interactions available based on current states
     def nextInteractions(self):
-        interactions = []
+        interactions = {}
         for interaction in self.interactions:
-            if interactionFitsState(interaction, self):
-                interactions.append(interaction)
+            interact_data = self.interactions[interaction]
+            if interactionFitsState(interact_data, self):
+                interactions[interaction] = interact_data
         return interactions
 
 # Returns boolean indicating whether the prompt meets state requirements
@@ -63,10 +64,10 @@ def promptFitsState(prompt, room):
     return True
 
 # Returns boolean indicating whether the interaction meets state requirements
-def interactionFitsState(interaction, room):
-    for req_state in interaction["requirements"]:
+def interactionFitsState(interact_data, room):
+    for req_state in interact_data["requirements"]:
         state_val = readState(req_state, room, rooms)
-        if interaction["requirements"][req_state] != state_val:
+        if interact_data["requirements"][req_state] != state_val:
             return False
     return True
 
@@ -132,7 +133,7 @@ def setState(state_path, value, room, rooms_dict):
 
 # Load rooms from directory
 rooms = readRooms("rooms")
-room: Room = rooms["lab_room_3"]
+room: Room = rooms["start"]
 
 #print(readState("LIGHTS_ON", room, rooms))
 #prompt = room.nextPrompt()
@@ -145,7 +146,7 @@ print(interactions)
 
 # This is magic right here. The first interaction is the light switch interaction,
 # so let's update the state based on that interaction
-updateState(interactions[0], room, rooms)
+updateState(interactions["Turn on the light"], room, rooms)
 
 # Let's print the new state results and see!
 print("\n")
