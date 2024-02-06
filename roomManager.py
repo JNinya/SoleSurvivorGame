@@ -47,8 +47,11 @@ class Room:
 
     # Returns an array of interactions available based on current states
     def nextInteractions(self):
-        # TODO: implement
-        print("Hello, world!")
+        interactions = []
+        for interaction in self.interactions:
+            if interactionFitsState(interaction, self):
+                interactions.append(interaction)
+        return interactions
 
 # Returns boolean indicating whether the prompt meets state requirements
 def promptFitsState(prompt, room):
@@ -56,6 +59,14 @@ def promptFitsState(prompt, room):
         state_val = readState(req_state, room, rooms)
         #print(req_state, prompt["requirements"][req_state], state_val) # DEBUG
         if prompt["requirements"][req_state] != state_val:
+            return False
+    return True
+
+# Returns boolean indicating whether the interaction meets state requirements
+def interactionFitsState(interaction, room):
+    for req_state in interaction["requirements"]:
+        state_val = readState(req_state, room, rooms)
+        if interaction["requirements"][req_state] != state_val:
             return False
     return True
 
@@ -106,5 +117,8 @@ room: Room = rooms["lab_room_3"]
 #print(readState("LIGHTS_ON", room, rooms))
 #prompt = room.nextPrompt()
 print(room.nextPrompt()["text"])
+print(room.nextInteractions())
 room.states["LIGHTS_ON"] = False
+print("\n")
 print(room.nextPrompt()["text"])
+print(room.nextInteractions())
