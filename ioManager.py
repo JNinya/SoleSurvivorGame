@@ -1,3 +1,15 @@
+#CODED BY JACK WOOOO
+"""
+Functions:
+
+rPrint(text)
+
+tPrint(text)
+
+getUserInput()
+
+"""
+
 import os
 
 #print for regular text
